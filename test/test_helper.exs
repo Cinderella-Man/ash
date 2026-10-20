@@ -15,4 +15,7 @@ Mimic.copy(Ash.ProcessHelpers)
 
 Code.compiler_options(ignore_module_conflict: true)
 
-ExUnit.start(stacktrace_depth: 100)
+Code.require_file("support/line_buffered_io.exs", __DIR__)
+Ash.Test.LineBufferedIO.install()
+
+ExUnit.start(stacktrace_depth: 100, max_cases: 2, seed: 0)
